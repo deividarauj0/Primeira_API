@@ -73,6 +73,8 @@ GEM
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.1.0)
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
@@ -94,13 +96,12 @@ GEM
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
-    factory_girl (4.9.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
-      railties (>= 3.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
+    fakeredis (0.1.4)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.14.1)
@@ -194,7 +195,7 @@ GEM
       rspec-expectations (~> 3.12)
       rspec-mocks (~> 3.12)
       rspec-support (~> 3.12)
-    rspec-support (3.12.0)
+    rspec-support (3.12.1)
     shoulda-matchers (5.3.0)
       activesupport (>= 5.2.0)
     thor (1.2.2)
@@ -213,16 +214,18 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  database_cleaner
   database_cleaner-active_record
   database_cleaner-redis
   debug
   devise
-  factory_bot (~> 6.2)
-  factory_girl_rails
+  factory_bot_rails
   faker
+  fakeredis
   mysql2 (~> 0.5)
   puma (~> 5.0)
   rails (~> 7.0.5)
+  redis
   rspec-rails
   shoulda-matchers (~> 5.0)
   tzinfo-data
