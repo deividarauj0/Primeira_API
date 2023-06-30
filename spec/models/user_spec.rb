@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
-  it { is_expected.to allow_value("deivid@email.com").for(:email) }
+  it { is_expected.to allow_value('deivid@email.com').for(:email) }
   it { is_expected.to validate_confirmation_of(:password) }
 
   ## O método #_02_#
@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
   # it { expect(user).to validate_presence_of(:name) }
 
   # context 'when name is blank' do
-  #   before { user.name = "" }
+  #   before { user.name = '' }
 
   #   it { expect(user).not_to be_valid }
   # end
