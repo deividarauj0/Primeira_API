@@ -10,43 +10,13 @@ RSpec.describe User, type: :model do
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
   it { is_expected.to allow_value('deivid@email.com').for(:email) }
   it { is_expected.to validate_confirmation_of(:password) }
+  it { is_expected.to validate_uniqueness_of(:auth_token) }
 
-  ## O método #_02_#
+  describe '#info' do
+    it 'returns email and created_at' do
+      user.save!
 
-  # it { expect(user).to respond_to(:email) }
-  # it { expect(user).to validate_presence_of(:name) }
-
-  # context 'when name is blank' do
-  #   before { user.name = '' }
-
-  #   it { expect(user).not_to be_valid }
-  # end
-
-  # context 'when name is nil' do
-  #   before { user.name = nil }
-
-  #   it { expect(user).not_to be_valid }
-  # end
-
-  ## O método #_03_#
-
-  # before { @user = FactoryBot.build(:user) }
-  
-  ## O método #_04_#
-  
-  # subject { build(:user) }
-
-  # it { expect(@user).to respond_to(:email) }
-  # it { expect(@user).to respond_to(:name) }
-  # it { expect(@user).to respond_to(:password) }
-  # it { expect(@user).to respond_to(:password_confirmation) }
-  # it { expect(@user).to be_valid }
-
-  ## O método #_05_#
-
-  # it { is_expected.to respond_to(:email) }
-  # it { is_expected.to respond_to(:name) }
-  # it { is_expected.to respond_to(:password) }
-  # it { is_expected.to respond_to(:password_confirmation) }
-  # it { is_expected.to be_valid }
+      expect(user.info).to eq("#{user.email} - #{user.created_at}")
+    end
+  end
 end
