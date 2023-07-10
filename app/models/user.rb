@@ -5,10 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :auth_token, uniqueness: { case_sensitive: true }
-  # validates_uniqueness_of :auth_token NÂO É MAIS USADO
+  # validates_uniqueness_of :auth_token NÂO É MAIS USADO NO MODEL, MAS FUNCIONA NO TESTE
 
   def info
-    "#{email} - #{created_at}"
+    "#{email} - #{created_at} - Token: #{Devise.friendly_token}"
   end
 
   ## O método #_02_#
