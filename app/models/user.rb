@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   validates :auth_token, uniqueness: { case_sensitive: true }
   # validates_uniqueness_of :auth_token NÂO É MAIS USADO NO MODEL, MAS FUNCIONA NO TESTE
+  before_create :generate_authentication_token!
 
   def info
     "#{email} - #{created_at} - Token: #{Devise.friendly_token}"
